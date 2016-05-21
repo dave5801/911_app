@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<title>Testing the API</title>
+	
+	<!-- API Call -->
+	<link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+	<script src="https://js.arcgis.com/3.16/"></script>
+	
+	<script>
+		var map;
+		require(["esri/map", "dojo/domReady!", "esri/geometry/Extent", "esri/SpatialReference"]
+			function(Map)
+			{
+				map = new Map("mapDiv",
+				{
+					center: [-77.09, 38.96325],
+					zoom: 15,
+					basemap: "streets",
+					slider: true,
+					logo: false
+				} );
+			}
+		);
+	</script>
+</head>
+	
+<body class="claro">
+	<div id="mapDiv">
+	</div>
+</body>
+
+</html>
