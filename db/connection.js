@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost/911_user");
 //   text:     String
 // });
 
-var user = mongoose.Schema({
+var User = mongoose.Schema({
   name:     String,
   location: String,
   health:   String,
