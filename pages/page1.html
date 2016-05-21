@@ -1,0 +1,120 @@
+<div class="jumbotron text-center">
+    <h1>Management Content Screen</h1>  
+</div>
+
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+      
+      <!--BEGIN ROW 1-->
+        <div class="row">
+            <div class="col-sm-6" ui-view="columnOneOne">
+                <div class="form-group" ng-class="{ 'has-error' : userForm.pos_description.$invalid && !userForm.pos_description.$pristine }">
+                    <label>Description</label>
+                     <input ng-maxlength="64" ng-minlength="8" type="text" name="pos_description" class="form-control" ng-model="position.pos_description" required>
+                    <p ng-show="userForm.pos_description.$invalid && !userForm.pos_description.$pristine" class="help-block">Invalid Description. Must be 8-64 characters.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6" ui-view="columnOneTwo">
+                     
+                <div class="form-group" ng-class="{ 'has-error' : userForm.section.$invalid && !userForm.section.$pristine }">
+                    <label>Section</label>
+                    <input ng-maxlength="16" ng-minlength="8" type="text" name="section" class="form-control" ng-model="position.section" required>
+                    <p ng-show="userForm.section.$invalid && !userForm.section.$pristine" class="help-block">Invalid Section. Must be 8-16 characters.</p>
+                </div>
+            </div>
+
+          </div><!--END ROW 1-->
+
+          <!--BEGIN ROW 2-->
+          <div class="row">
+            
+            <div class="col-sm-4" ui-view="columnTwoOne">
+              <label>Select Job Code</label>
+                  <select name="select_sjc" ng-model="position_info.selectSJC" required>
+                    <option ng-repeat="option in position_info.availableOptions" value="{{option.sow_sjc}}">{{option.sow_sjc}}</option>
+                  </select>
+            </div>
+
+            <div class="col-sm-4" ui-view="columnTwoTwo">
+               <label>Select Management Code</label>
+                <select name="select_smc" ng-model="position_info.selectSMC" required>
+                    <option ng-repeat="option in position_info.availableOptions" value="{{option.sow_smc}}">{{option.sow_smc}}</option>
+                  </select>
+            </div> 
+
+          </div><!--END ROW 2-->
+          
+          <!--BEGIN ROW 3-->
+          <div class="row">
+            <div class="col-sm-6" ui-view="columnThreeOne">
+              <label>Skill Code Maximum</label>
+                <select name="select_skill_max" ng-model="jobCodeList.selectMAX" required>
+                    <option ng-repeat="option in jobCodeList.availableOptions" value="{{option.id}}">{{option.id}}</option>
+                  </select>
+            </div>
+            
+            <div class="col-sm-6" ui-view="columnThreeTwo">
+                <label>Skill Code Minimum</label>
+                <select name="select_skill_min" ng-model="jobCodeList.selectMIN" required>
+                    <option ng-repeat="option in jobCodeList.availableOptions" value="{{option.id}}">{{option.id}}</option>
+                  </select>
+            </div>  
+
+          </div>   <!--END ROW 3--> 
+
+        <!--BEGIN ROW 4-->
+        <div class="row">
+          <div class="col-md-6">
+            <p class="input-group">
+              <input type="date" class="form-control" uib-datepicker-popup="{{format}}" ng-model="from_date" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+          </div> 
+
+          <div class="col-md-6">
+              <p class="input-group">
+              <input type="date" class="form-control" uib-datepicker-popup="{{format}}" ng-model="thru_date" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+          </div>  
+
+
+        </div><!--END ROW 4-->  
+
+
+      
+      
+      <!--MODAL BODY-->
+      <div>
+        <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                      <h3 class="modal-title">New Information Added</h3>
+                </div>
+                 <div class="modal-body">
+                      <ul>
+
+                          
+                          <li ng-repeat="item in items">
+                          
+                              <b>{{item.data}}
+                             
+                          </li>
+                      </ul>
+                     
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                  </div>
+        </script>
+      </div>  
+
+     <!-- <input type="button" class="btn btn-default" ng-click="submit_form()" value="Submit" />
+        <hr/>  -->
+         <input type="submit" class="btn btn-primary" ng-click="submit_form()" value="Submit" ng-disabled = "userForm.$invalid"/>
+          
+    </form>       
