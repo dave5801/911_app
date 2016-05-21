@@ -7,6 +7,7 @@ I want the app to keep track of my location data to send to first responders.
 I want the app to take pictures and send them with my call.
 I want the app to automatically trigger events if I'm incapacitated.
 I want to be able to manually run the app if I am able to at the time.
+As a user, if I'm a victim of domestic abuse, I want to be able to quietly send the alert.
 As a deaf user, I want to be able to use 911-standard taps to send basic info.
 
 
@@ -30,6 +31,7 @@ I want the app to keep track of my location data to send to first responders.
 Silver:
 I want the app to automatically trigger events if I'm incapacitated.
 I want to be able to manually run the app if I am able to at the time.
+As a user, if I'm a victim of domestic abuse, I want to be able to quietly send the alert.
 As a deaf user, I want to be able to use 911-standard taps to send basic info.
 Gold:
 I want the app to take pictures and send them with my call.
