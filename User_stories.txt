@@ -1,0 +1,48 @@
+User stories
+
+As a user,
+I want to open the app and tap a button to send an emergency call.
+I want to save my medical data for first responders to know about.
+I want the app to keep track of my location data to send to first responders.
+I want the app to take pictures and send them with my call.
+I want the app to automatically trigger events if I'm incapacitated.
+I want to be able to manually run the app if I am able to at the time.
+As a deaf user, I want to be able to use 911-standard taps to send basic info.
+
+
+As a responder,
+I want the app to ping the phone so I could find the owner.
+I want to get the best-known location from the app.
+I want to be able to hear the user.
+I want to see the location of the user on a map.
+I want to be able to know what floor of a large building the user is on.
+I want to see pictures from the user's phone if they can help me find their location.
+I want to be able to navigate inside a building.
+I want to be able to speak through the speakerphone and either reach the user or hear what's going on.
+
+
+MVP
+User:
+Bronze:
+I want to open the app and tap a button to send an emergency call.
+I want to save my medical data for first responders to know about.
+I want the app to keep track of my location data to send to first responders.
+Silver:
+I want the app to automatically trigger events if I'm incapacitated.
+I want to be able to manually run the app if I am able to at the time.
+As a deaf user, I want to be able to use 911-standard taps to send basic info.
+Gold:
+I want the app to take pictures and send them with my call.
+
+
+Responder:
+Bronze:
+I want to see the location of the user on a map.
+I want to be able to hear the user.
+I want to get the best-known location from the app.
+Silver:
+I want the app to ping the phone so I could find the owner.
+I want to be able to speak through the speakerphone and either reach the user or hear what's going on.
+Gold:
+I want to be able to navigate inside a building.
+I want to be able to know what floor of a large building the user is on.
