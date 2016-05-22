@@ -1,33 +1,25 @@
-var map;
-
-require(["esri/map",
-	"esri/geometry/Extent",
-	"esri/SpatialReference",
-	"esri/layers/FeatureLayer",
+require([
+	"dojo/parser",
+	"dojo/ready",
+	"dijit/layout/BorderContainer",
+	"dijit/layout/ContentPane",
+	"dojo/dom",
+	"esri/map",
+	"esri/urlUtils",
+	"esri/arcgis/utils",
 	"dojo/domReady!"
 	],
 	
-	function(Map, Extent, FeatureLayer)
+	function(parser, ready, BorderContainer, ContentPane, dom, Map, urlUtils, arcgisUtils)
 	{
-		// Load map centered on Friendship Heights - approx. coord 77.09 W, 38.96325 N
-		var mapBox = new Extent({"xmin":-77.14,"ymin":38.91325,"xmax":-77.04,"ymax":39.01325,"spatialReference":{"wkid":4326} });
-		
-		map = new Map("mapDiv",
+		ready(function()
 		{
-			// Define map viewport			
-			extent: mapBox,
-			zoom: 15,
-			slider: true,
-			showLabels : true,
-			logo: false,
+			parser.parse();
 			
-			// Map type -- Use streets or hybrid
-			basemap: "streets"
+			arcgisUtils.createMap("8586e1087a074db598bc0c779aceb2a8","map").then(function(response)
+			{
+				var map = response.map;
+			} );
 		} );
-		
-		// Feature Layer
-		var featureLayer = new FeatureLayer("https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0");
-
-    map.addLayer(featureLayer);
 	}
-);
+) ;
