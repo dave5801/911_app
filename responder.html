@@ -46,7 +46,7 @@
 
     <h1>911 App Response Page</h1>
     <div>
-         <h3> Enter an adress and press the button</h3>
+         <h3> Enter an address and press the button</h3>
 
         <input id="address" type="text" placeholder="Enter address here" />
         <button id="btn">Get LatLong</button>
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="jumbotron text-center">
-        <h1>User Profile</h1>
+        <!-- <h1>User Profile</h1> -->
     </div>
 
      <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
@@ -78,9 +78,7 @@
 
             <div class="row">
                 <div class="col-sm-6" ui-view="columnOneOne">
-                    <div class="form-group" ng-class="{ 'has-error' : userForm.med_description.$invalid && !userForm.med_description.$pristine }">
-                        <label>Suffering a Stroke</label>
-                    </div>
+                        <h2>Suffering a Stroke</h2>
                 </div>
               </div>
 
