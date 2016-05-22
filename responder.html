@@ -6,8 +6,120 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
   </head>
   <body>
-hello world
+
+
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    	<title>Testing the API</title>
+
+    	<!-- API Call -->
+    	<link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+    	<script src="https://js.arcgis.com/3.16/"></script>
+
+    	<script>
+    		var map;
+    		require(["esri/map", "dojo/domReady!", "esri/geometry/Extent", "esri/SpatialReference"],
+    			function(Map)
+    			{
+    				map = new Map("mapDiv",
+    				{
+    					center: [-77.09, 38.96325],
+    					zoom: 15,
+    					basemap: "streets",
+    					slider: true,
+    					logo: false
+    				} );
+    			}
+    		);
+    	</script>
+    </head>
+
+    <body class="claro">
+    	<div id="mapDiv">
+    	</div>
+    </body>
+
+    <h1>911 App Response Page</h1>
+    <div>
+         <h3> Enter an adress and press the button</h3>
+
+        <input id="address" type="text" placeholder="Enter address here" />
+        <button id="btn">Get LatLong</button>
+        <div>
+            <p>Latitude:
+                <input type="text" id="latitude" readonly />
+            </p>
+            <p>Longitude:
+                <input type="text" id="longitude" readonly />
+            </p>
+        </div>
+    </div>
+    <div class="jumbotron text-center">
+        <h1>User Profile</h1>
+    </div>
+
+     <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+          <!--BEGIN ROW 1-->
+
+          <div class="row">
+                <div class="col-sm-6" ui-view="columnOneOne">
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.pro_name.$invalid && !userForm.pro_name.$pristine }">
+                        <label>Name of Person (In Danger)</label>
+                        <h1>John Needshelp</h1>
+                    </div>
+                </div>
+              </div>
+
+            <div class="row">
+                <div class="col-sm-6" ui-view="columnOneOne">
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.med_description.$invalid && !userForm.med_description.$pristine }">
+                        <label>Suffering a Stroke</label>
+                    </div>
+                </div>
+              </div>
+
+
+          <!--MODAL BODY-->
+          <div>
+            <script type="text/ng-template" id="myModalContent.html">
+                    <div class="modal-header">
+                          <h3 class="modal-title">Send location and profile info</h3>
+                    </div>
+                     <div class="modal-body">
+                          <ul>
+                              <li ng-repeat="item in items">
+
+                                  <b>{{item.data}}
+
+                              </li>
+                          </ul>
+
+                      </div>
+                      <div class="modal-footer">
+                          <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                          <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                      </div>
+            </script>
+          </div>
+
+            <input type="submit" class="btn btn-primary" ng-click="call_fire()" value="Call Fire Department" ng-disabled = "userForm.$invalid"/>
+
+            <input type="submit" class="btn btn-primary" ng-click="domestic_hotline()" value="Call Fire Department" ng-disabled = "userForm.$invalid"/>
+
+             <input type="submit" class="btn btn-primary" ng-click="submit_form()" value="911 Emergency Call" ng-disabled = "userForm.$invalid"/>
+              <div class="row">
+
+        </form>
+
+
+
+
+
   </body>
 </html>
