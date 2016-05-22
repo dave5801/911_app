@@ -1,0 +1,60 @@
+<div class="jumbotron text-center">
+    <h1>Create User Profile</h1>  
+</div>
+
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+      
+      <!--BEGIN ROW 1-->
+
+      <div class="row">
+            <div class="col-sm-6" ui-view="columnOneOne">
+                <div class="form-group" ng-class="{ 'has-error' : userForm.pro_name.$invalid && !userForm.pro_name.$pristine }">
+                    <label>Name of Person (In Danger)</label>
+                     <input ng-maxlength="64" ng-minlength="8" type="text" name="pro_name" class="form-control" ng-model="medical_profile.pro_name" required>
+                    <p ng-show="userForm.pro_name.$invalid && !userForm.pro_name.$pristine" class="help-block">Invalid Description. Must be 8-64 characters.</p>
+                </div>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="col-sm-6" ui-view="columnOneOne">
+                <div class="form-group" ng-class="{ 'has-error' : userForm.med_description.$invalid && !userForm.med_description.$pristine }">
+                    <label>Horrible Description of Problem which is Dangerous</label>
+                     <input ng-maxlength="64" ng-minlength="8" type="text" name="med_description" class="form-control" ng-model="medical_profile.med_description" required>
+                    <p ng-show="userForm.med_description.$invalid && !userForm.med_description.$pristine" class="help-block">Invalid Description. Must be 8-64 characters.</p>
+                </div>
+            </div>
+          </div>
+
+        
+      <!--MODAL BODY-->
+      <div>
+        <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                      <h3 class="modal-title">Send location and profile info</h3>
+                </div>
+                 <div class="modal-body">
+                      <ul>     
+                          <li ng-repeat="item in items">
+                          
+                              <b>{{item.data}}
+                             
+                          </li>
+                      </ul>
+                     
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                  </div>
+        </script>
+      </div>  
+
+        <input type="submit" class="btn btn-primary" ng-click="call_fire()" value="Call Fire Department" ng-disabled = "userForm.$invalid"/>
+
+        <input type="submit" class="btn btn-primary" ng-click="domestic_hotline()" value="Call Fire Department" ng-disabled = "userForm.$invalid"/>
+
+         <input type="submit" class="btn btn-primary" ng-click="submit_form()" value="911 Emergency Call" ng-disabled = "userForm.$invalid"/>
+          <div class="row">
+  
+    </form>       

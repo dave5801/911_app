@@ -1,5 +1,5 @@
 var routerApp = angular.module('routerApp', ['ui.router', 'ngAnimate', 'ui.bootstrap',
- 'page1App']);
+ 'userApp']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -11,15 +11,15 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/home',
             templateUrl: 'pages/home.html'
+            
         })
         
-        
         // POSITION PAGE=================================
-        .state('position', {
-            url: '/position',
+        .state('user', {
+            url: '/user',
             views: {
-                '': { templateUrl: 'pages/page1.html', 
-                      controller: 'page1Controller' },
+                '': { templateUrl: 'pages/user.html', 
+                      controller: 'userController' },
 
             }
             
