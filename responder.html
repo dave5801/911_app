@@ -7,43 +7,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  </head>
-  <body>
 
-
-    <head>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     	<title>Testing the API</title>
 
     	<!-- API Call -->
-    	<link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
-    	<script src="https://js.arcgis.com/3.16/"></script>
-
-    	<script>
-    		var map;
-    		require(["esri/map", "dojo/domReady!", "esri/geometry/Extent", "esri/SpatialReference"],
-    			function(Map)
-    			{
-    				map = new Map("mapDiv",
-    				{
-    					center: [-77.09, 38.96325],
-    					zoom: 15,
-    					basemap: "streets",
-    					slider: true,
-    					logo: false
-    				} );
-    			}
-    		);
-    	</script>
-    </head>
-
-    <body class="claro">
-    	<div id="mapDiv">
-    	</div>
-    </body>
-
+    <link rel="stylesheet" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://js.arcgis.com/3.16/"></script>
+	<script src="map.js"></script>
+  </head>
+  <body class="claro">
+    	<div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+		</body>
+<body>
     <h1>911 App Response Page</h1>
     <div>
          <h3> Enter an address and press the button</h3>
